@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -23,13 +20,24 @@ public class Main {
             c.add(b.get(i));
         }
         System.out.println(c);
-
-        String [] names = {"Aisalbek", "Doni", "Nurdoolot", "Jon", "Syimyk", "Nurik"};
+        Scanner scanner = new Scanner(System.in);
+      ArrayList <String> names = new ArrayList<>();
+      boolean b1 =true;
+      while (b1){
+          System.out.println("для остановки просеса нажмите х ");
+          System.out.print("ведите имя : ");
+          String strig = scanner.nextLine();
+          if (strig.equals("x")){
+              b1=false;
+          }else {
+              names.add(strig);
+          }
+      }
         Comparator<String> stringLengthComparator = new StringLengthSort();
         for(String str : names){
             System.out.println(str);
         }
-        Arrays.sort(names, stringLengthComparator); // применяем сортировку
+       Collections.sort(names, stringLengthComparator); // применяем сортировку
         System.out.println("\nотсортировано\n");
         for(String str : names){
             System.out.println(str);
