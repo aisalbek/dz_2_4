@@ -3,43 +3,37 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
-
-        ArrayList<User> a = new ArrayList<>();
-        ArrayList<User> b = new ArrayList<>();
-        ArrayList<User> c = new ArrayList<>();
-        for (int i = 1; i < 6; i++) {
-            a.add(new User("A" + i));
-            b.add(new User("B" + i));
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<String> a = new ArrayList<>();
+        System.out.println("Веедите 5 строк");
+        for (int i = 0; i < 5; i++) {
+            System.out.print(i+":");
+            a.add(scanner.next());
         }
-        System.out.println(a);
-        System.out.println(b);
-        Collections.reverse(b);
+        System.out.println("Список А: " + a);
 
+        ArrayList<String> b = new ArrayList<>();
+        System.out.println("Веедите 5 строк");
+        for (int i = 0; i < 5; i++) {
+            System.out.print(i+":");
+            b.add(scanner.next());
+        }
+        System.out.println("Список Б: " + b);
+
+        ArrayList<String> c = new ArrayList<>();
+        Collections.reverse(b);
         for (int i = 0; i < a.size(); i++) {
             c.add(a.get(i));
             c.add(b.get(i));
         }
-        System.out.println(c);
-        Scanner scanner = new Scanner(System.in);
-      ArrayList <String> names = new ArrayList<>();
-      boolean b1 =true;
-      while (b1){
-          System.out.println("для остановки просеса нажмите х ");
-          System.out.print("ведите имя : ");
-          String strig = scanner.nextLine();
-          if (strig.equals("x")){
-              b1=false;
-          }else {
-              names.add(strig);
-          }
-      }
+        System.out.println("Список С: " + c);
         Comparator<String> stringLengthComparator = new StringLengthSort();
-        for(String str : names){
+        for(String str : c){
             System.out.println(str);
         }
-       Collections.sort(names, stringLengthComparator); // применяем сортировку
+        Collections.sort(c, stringLengthComparator);
         System.out.println("\nотсортировано\n");
-        for(String str : names){
+        for(String str : c) {
             System.out.println(str);
         }
     }
